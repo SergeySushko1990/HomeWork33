@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Authors list</title>
+  <link rel="icon" type="image/png" th:href="@{/icon.png}"/>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div th:replace="~{navigation :: navi(Authors)}"></div>
+
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <h1>Писатели:</h1>
+
+  <table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th>Номер</th>
+      <th>Имя</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="thead-light" th:each="author, stat : ${authors}">
+      <td th:text="${stat.index+1}"></td>
+      <!--            <td>-->
+      <!--                <img th:src="@{${book.getImageUrl()}}"-->
+      <!--                     class="card img-fluid" style="width:50px; height: 50px;" alt=""/>-->
+      <!--            </td>-->
+      <td th:text="${author.getFullName()}"></td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>
+
+</body>
+</html>

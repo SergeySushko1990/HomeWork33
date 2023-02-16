@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="icon" type="image/png" th:href="@{/icon.png}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container" th:fragment="navi(activeTab)">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
+        <!--<a class="navbar-brand" href="#">GeekMarket</a>-->
+        <img th:src="@{/icon.png}"/>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item" th:classappend="${activeTab == 'Home' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/bookshop}">Домашняя страница<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" th:classappend="${activeTab == 'Books' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/bookshop/books}">Каталог книг<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" th:classappend="${activeTab == 'Authors' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/bookshop/authors}">Писатели<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" th:classappend="${activeTab == 'ShoppingCart' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/bookshop/cart}">Корзина<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" th:classappend="${activeTab == 'AddBook' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/bookshop/book}">Добавить книгу</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="visible-md" style="height:80px;"></div>
+</div>
+<footer class="container">
+    <p>&copy; Company 2021-2022</p>
+</footer>
+</body>
+</html>
